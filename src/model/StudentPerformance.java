@@ -1,6 +1,7 @@
 package model;
 
 import data_access.DataAccess;
+import domain.GradingScheme;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,12 +59,13 @@ public class StudentPerformance {
     }
 
     public String[] calculateGrade(double score) {
-        // Grade boundaries: A >= 80, B >= 65, C >= 50, D >= 40, F < 40
-        if (score >= 80) return new String[]{"A", "4.0"};
-        if (score >= 65) return new String[]{"B", "3.0"};
-        if (score >= 50) return new String[]{"C", "2.0"};
-        if (score >= 40) return new String[]{"D", "1.0"};
-        return new String[]{"F", "0.0"};
+        // Use GradingScheme enum for consistency with domain classes
+        for (GradingScheme gs : GradingScheme.values()) {
+            if (score >= gs.getMinScore()) {
+                return new String[]{gs.getGrade(), String.valueOf(gs.getGpa())};
+            }
+        }
+        return new String[]{"F-", "0.0"};
     }
 
     public String getStudentId() {
