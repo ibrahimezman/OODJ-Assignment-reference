@@ -1,0 +1,5 @@
+S001|CS101|Complete additional tutorials and attend weekly office hours|Active|1:Review fundamental concepts,2:Complete practice exercises,3:Take practice quiz,4:Submit revised assignment
+S002|CS102|Focus on programming fundamentals and code review sessions|Active|1:Review Java basics,2:Complete coding exercises,3:Pair programming session,4:Submit project milestone
+S003|MATH201|Attend supplementary math workshops|Pending|1:Review calculus concepts,2:Complete problem sets,3:Attend tutoring session,4:Take practice exam
+S004|CS101|Improve study habits and time management|Active|1:Create study schedule,2:Review lecture notes,3:Form study group,4:Complete assignments on time
+S005|ENG101|Work on writing skills with writing center support|Completed|1:Meet with writing tutor,2:Complete grammar exercises,3:Submit draft for review,4:Revise final essay
