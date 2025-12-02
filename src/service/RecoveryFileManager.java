@@ -80,14 +80,14 @@ public class RecoveryFileManager
             writer.write(line.toString());
 
             // Print a message for debugging purposes (following the pattern in StudentDAO)
-            System.out.println("Successfully saved recovery plan for student: " + plan.getStudentId());
+            System.err.println("Successfully saved recovery plan for student: " + plan.getStudentId());
 
             return true;
         }
         catch (IOException e)
         {
             // Print error message if something goes wrong
-            System.out.println("Error saving recovery plan: " + e.getMessage());
+            System.err.println("Error saving recovery plan: " + e.getMessage());
             return false;
         }
     }
@@ -112,7 +112,7 @@ public class RecoveryFileManager
         File file = new File(RECOVERY_FILE_PATH);
         if (!file.exists())
         {
-            System.out.println("Recovery plans file does not exist yet. Returning empty list.");
+            System.err.println("Recovery plans file does not exist yet. Returning empty list.");
             return plans;
         }
 
@@ -182,12 +182,12 @@ public class RecoveryFileManager
                 }
             }
 
-            System.out.println("Successfully loaded " + plans.size() + " recovery plans.");
+            System.err.println("Successfully loaded " + plans.size() + " recovery plans.");
         }
         catch (IOException e)
         {
             // Print error message if something goes wrong
-            System.out.println("Error loading recovery plans: " + e.getMessage());
+            System.err.println("Error loading recovery plans: " + e.getMessage());
         }
 
         return plans;
