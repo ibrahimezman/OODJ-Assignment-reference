@@ -1,5 +1,5 @@
 package service;
-import model.StudentPerformance;
+import domain.StudentPerformance;
 
 public class EligibilityCheck
 {
