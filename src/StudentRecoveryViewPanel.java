@@ -49,9 +49,15 @@ public class StudentRecoveryViewPanel extends JPanel
      * Constructor - Initializes the panel for a specific student.
      * 
      * @param studentId The unique identifier of the logged-in student (e.g., "S001")
+     * @throws IllegalArgumentException if studentId is null or empty
      */
     public StudentRecoveryViewPanel(String studentId)
     {
+        // Validate that studentId is not null or empty
+        if (studentId == null || studentId.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Student ID cannot be null or empty");
+        }
         this.studentId = studentId;
         this.recoveryFileManager = new RecoveryFileManager();
         
@@ -105,7 +111,9 @@ public class StudentRecoveryViewPanel extends JPanel
         for (RecoveryPlan plan : allPlans)
         {
             // Compare the plan's student ID with our logged-in student ID
-            if (plan.getStudentId().equals(studentId))
+            // Use null-safe comparison: check plan's studentId first to avoid NullPointerException
+            String planStudentId = plan.getStudentId();
+            if (planStudentId != null && planStudentId.equals(studentId))
             {
                 // Found a matching plan - store it and exit the loop
                 studentPlan = plan;
