@@ -55,7 +55,7 @@ public class generateAcademicPerformanceReport extends JFrame {
                         {
                             if (student[0].equals(id))
                             {
-                                String[] program = data.getPrograms(student).getFirst();
+                                String[] program = data.getPrograms(student).get(0);
                                 enrolled_program = program[2] + " in " + program[1];
                                 break;
                             }

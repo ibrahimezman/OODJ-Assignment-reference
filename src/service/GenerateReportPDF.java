@@ -61,7 +61,7 @@ public class GenerateReportPDF
                 if (student[0].equals(studentId))
                 {
                     String name = student[1] + " " + student[2];
-                    String[] enrolled_program = data.getPrograms(student).getFirst();
+                    String[] enrolled_program = data.getPrograms(student).get(0);
                     String programName = enrolled_program[2] + " in " + enrolled_program[1];
                     String[] info = {name, studentId, programName};
 
