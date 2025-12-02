@@ -169,6 +169,10 @@ public class RecoveryService {
      * Helper method to parse a score string to an integer.
      * Returns 0 if the string cannot be parsed (handles empty or non-numeric values).
      * 
+     * Note: Returning 0 for invalid scores follows the principle that missing/invalid
+     * scores should be treated as failing (below the pass mark of 40). This is consistent
+     * with how the data files in this project are structured (all numeric values).
+     * 
      * @param scoreStr The score as a string
      * @return The score as an integer, or 0 if parsing fails
      */
@@ -177,6 +181,8 @@ public class RecoveryService {
             return Integer.parseInt(scoreStr.trim());
         } catch (NumberFormatException e) {
             // If the score cannot be parsed, treat it as 0 (which would be a failing score)
+            // This ensures students with missing scores are flagged for review
+            System.err.println("Warning: Could not parse score '" + scoreStr + "', treating as 0");
             return 0;
         }
     }
